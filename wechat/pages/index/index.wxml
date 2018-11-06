@@ -1,0 +1,11 @@
+<!--pages/index/index.wxml-->
+<view>
+  <view>
+    用户名：<input placeholder='请输入用户名' bindinput='getName'></input>
+  </view>
+  <view>
+    密码：<input placeholder='请输入密码' bindinput='getPass'></input>
+  </view>
+  <button bindtap='login'>登录</button>
+  <button bindtap='regist'>注册</button>
+</view>
