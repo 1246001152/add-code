@@ -4,6 +4,6 @@ class Config {
   }
 }
 
-Config.baseUrl = 'http://localhost:8080/api/v1/';
+Config.baseUrl = 'http://localhost:8080/';
 
 export { Config };

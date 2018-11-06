@@ -1,3 +1,5 @@
+import { Index } from 'index-model.js';
+var index = new Index();
 // pages/index/index.js
 Page({
 
@@ -15,12 +17,19 @@ Page({
   onLoad: function (options) {
 
   },
-
   /**
    * 登录操作
    */
   login:function(event){
     console.log(this.data);
+    index.login(this.data.name, this.data.pass, (res) => {
+      console.log(res);
+      if(res.code == 200){
+        wx.redirectTo({
+          url: '../home/home',
+        })
+      }
+    })
   },
 
   /**
@@ -28,6 +37,9 @@ Page({
    */
   regist:function(event){
     console.log(this.data);
+    index.resgist(this.data.name,this.data.pass, (res) => {
+      console.log(res);
+    })
   },
 
   /**
