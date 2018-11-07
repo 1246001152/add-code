@@ -1,2 +1,7 @@
 <!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<view>我的名字：{{name}}</view>
+<view>我的好友列表</view>
+<view wx:for="{{list}}">
+  {{index}}:{{item.name}}
+</view>
+

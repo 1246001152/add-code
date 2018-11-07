@@ -26,7 +26,7 @@ Page({
       console.log(res);
       if(res.code == 200){
         wx.redirectTo({
-          url: '../home/home',
+          url: '../home/home?name='+res.data,
         })
       }
     })

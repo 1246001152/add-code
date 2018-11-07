@@ -51,7 +51,7 @@ public class UserController {
             return ResultVoUtil.error(446,"【用户不存在】");
         }
         if (pass.equals(user.getPass())){
-            return ResultVoUtil.success("【登录成功】");
+            return ResultVoUtil.success(name);
         }else {
             return ResultVoUtil.error(447,"【密码错误】");
         }
