@@ -1,5 +1,7 @@
 <!--pages/home/home.wxml-->
 <view>我的名字：{{name}}</view>
+<button bindtap='tapCode'>我的二维码</button>
+<button bindtap='tapAdd'>扫码加好友</button>
 <view>我的好友列表</view>
 <view wx:for="{{list}}">
   {{index}}:{{item.name}}

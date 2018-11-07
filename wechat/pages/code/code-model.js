@@ -1,13 +1,17 @@
 import { Base } from '../../utils/base.js';
 
-class Home extends Base {
+class Code extends Base {
   constructor() {
     super();
   }
 
-  getMyFriend(name,callback){
+  code(name, callback) {
     var params = {
-      url: 'friend/my_friend',
+      url: 'friend/code',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      type: 'POST',
       data: {
         'name': name
       },
@@ -20,4 +24,4 @@ class Home extends Base {
 
 }
 
-export { Home };
+export { Code };
