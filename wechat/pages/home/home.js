@@ -33,12 +33,13 @@ Page({
   },
 
   tapAdd:function(e){
+    var that = this;
     wx.scanCode({
       // onlyFromCamera:true,
       success(res){
         console.log(res)
         wx.redirectTo({
-          url: '../msg/msg?name='+res.result,
+          url: '../msg/msg?name='+res.result+'&me='+that.data.name,
         })
       }
     })

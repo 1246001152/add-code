@@ -33,6 +33,11 @@ public class FriendServiceImpl implements FriendService {
         return friendDTOList;
     }
 
+    @Override
+    public Friend save(Friend friend) {
+        return friendRepository.save(friend);
+    }
+
     private FriendDTO transToDTO(Friend e) {
         FriendDTO friendDTO = new FriendDTO();
         User user = userRepository.getOne(e.getFriendId());

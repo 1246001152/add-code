@@ -1,3 +1,5 @@
+import { Msg } from 'msg-model.js';
+var msg = new Msg();
 // pages/msg/msg.js
 Page({
 
@@ -5,15 +7,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name:''
+    name:'',
+    me:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     this.setData({
-      name:options.name
+      name:options.name,
+      me:options.me
+    })
+  },
+
+  add:function(e){
+    var that = this;
+    msg.add(this.data.me,this.data.name,(res)=>{
+      if(res.code == 200){
+        wx.redirectTo({
+          url: '../home/home?name=' + that.data.me,
+        })
+      }
     })
   },
 

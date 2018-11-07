@@ -1,5 +1,6 @@
 package com.myself.code.controller;
 
+import com.myself.code.dataobject.Friend;
 import com.myself.code.dataobject.User;
 import com.myself.code.dto.FriendDTO;
 import com.myself.code.service.FriendService;
@@ -49,5 +50,17 @@ public class FriendController {
         String path = CreateQRCodeUtil.create(name,name);
         log.info(path);
         return ResultVoUtil.success(path);
+    }
+
+
+    @PostMapping("/add")
+    public ResultVO add(@RequestParam("me") String me,@RequestParam("name") String name){
+        User user = userService.findByName(me);
+        User friend = userService.findByName(name);
+        Friend friendMsg = new Friend();
+        friendMsg.setUserId(user.getId());
+        friendMsg.setFriendId(friend.getId());
+        friendService.save(friendMsg);
+        return ResultVoUtil.success("ok");
     }
 }
