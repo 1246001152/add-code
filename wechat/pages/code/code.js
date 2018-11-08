@@ -17,7 +17,7 @@ Page({
     console.log(options);
     code.code(options.name,(res)=>{
       this.setData({
-        img:'http://192.168.1.121:8080/img/'+res.data
+        img:'http://192.168.1.121:8080/upload/'+res.data
       })
     })
   },

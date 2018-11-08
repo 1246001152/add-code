@@ -26,7 +26,7 @@ Page({
     var that = this;
     msg.add(this.data.me,this.data.name,(res)=>{
       if(res.code == 200){
-        wx.redirectTo({
+        wx.navigateTo({
           url: '../home/home?name=' + that.data.me,
         })
       }

@@ -32,7 +32,7 @@ public class CreateQRCodeUtil {
         //生成二维码
         try {
             BitMatrix bitMatrix = new MultiFormatWriter().encode(content, BarcodeFormat.QR_CODE,WIDTH,HEIGHT,hints);
-            Path file = new File("E:\\Git项目/addcode/src/main/resources/static/img/"+name+".png").toPath();
+            Path file = new File("E:\\img/"+name+".png").toPath();
             MatrixToImageWriter.writeToPath(bitMatrix,FORMAT,file);
             return file.getFileName().toString();
         }catch (Exception e){

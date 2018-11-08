@@ -25,7 +25,7 @@ Page({
     index.login(this.data.name, this.data.pass, (res) => {
       console.log(res);
       if(res.code == 200){
-        wx.redirectTo({
+        wx.navigateTo({
           url: '../home/home?name='+res.data,
         })
       }

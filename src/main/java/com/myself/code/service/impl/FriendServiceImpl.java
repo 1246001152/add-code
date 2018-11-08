@@ -39,6 +39,7 @@ public class FriendServiceImpl implements FriendService {
     }
 
     private FriendDTO transToDTO(Friend e) {
+        //System.out.println(e.getUserId()+"-"+e.getFriendId());
         FriendDTO friendDTO = new FriendDTO();
         User user = userRepository.getOne(e.getFriendId());
         friendDTO.setName(user.getName());

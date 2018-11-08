@@ -27,7 +27,7 @@ Page({
   },
 
   tapCode:function(e){
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../code/code?name='+this.data.name,
     })
   },
@@ -38,7 +38,7 @@ Page({
       // onlyFromCamera:true,
       success(res){
         console.log(res)
-        wx.redirectTo({
+        wx.navigateTo({
           url: '../msg/msg?name='+res.result+'&me='+that.data.name,
         })
       }
