@@ -1,5 +1,0 @@
-<!--pages/msg/msg.wxml-->
-<view>用户信息</view>
-<view>用户名：{{name}}</view>
-<button bindtap='add'>添加好友</button>
-
