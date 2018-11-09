@@ -64,6 +64,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.github.UncleCatMySelf</groupId>
+			<artifactId>add-code</artifactId>
+			<version>1.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>

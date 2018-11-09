@@ -12,9 +12,9 @@ spring:
 qrcode:
   handler: "/upload/**" #前端资源监听路径
   location: "file:E:/img/" #资源存放父目录
-  parents: "E:\img/" #资源存放父目录
-  suffixname: ".png" #生成图片的后缀名称
-  suffix: "png" #生成图片的格式
-  width: 300 #图片的宽
-  height: 300 #图片的高
+  parents: "E:\\img/" #资源存放父目录
+#  suffixname: ".png" #生成图片的后缀名称
+#  suffix: "png" #生成图片的格式
+#  width: 300 #图片的宽
+#  height: 300 #图片的高
 

@@ -23,6 +23,9 @@ import java.util.List;
 public class FriendController {
 
     @Autowired
+    private CreateQRCodeUtil createQRCodeUtil;
+
+    @Autowired
     private FriendService friendService;
 
     @Autowired
@@ -47,7 +50,7 @@ public class FriendController {
      */
     @PostMapping("/code")
     public ResultVO code(@RequestParam("name") String name){
-        String path = CreateQRCodeUtil.create(name,name);
+        String path = createQRCodeUtil.create(name,name);
         log.info(path);
         return ResultVoUtil.success(path);
     }
