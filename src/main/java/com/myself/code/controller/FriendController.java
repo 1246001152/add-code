@@ -55,7 +55,6 @@ public class FriendController {
         return ResultVoUtil.success(path);
     }
 
-
     @PostMapping("/add")
     public ResultVO add(@RequestParam("me") String me,@RequestParam("name") String name){
         User user = userService.findByName(me);
