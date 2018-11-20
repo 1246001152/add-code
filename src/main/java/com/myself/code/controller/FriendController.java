@@ -6,8 +6,8 @@ import com.myself.code.dto.FriendDTO;
 import com.myself.code.service.FriendService;
 import com.myself.code.service.UserService;
 import com.myself.code.utils.CreateQRCodeUtil;
-import com.myself.code.utils.ResultVoUtil;
-import com.myself.code.vo.ResultVO;
+import com.myself.winter.utils.ResultVOUtil;
+import com.myself.winter.vo.ResultVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +26,9 @@ public class FriendController {
     private CreateQRCodeUtil createQRCodeUtil;
 
     @Autowired
+    private ResultVOUtil resultVOUtil;
+
+    @Autowired
     private FriendService friendService;
 
     @Autowired
@@ -37,10 +40,10 @@ public class FriendController {
      * @return
      */
     @GetMapping("/my_friend")
-    public ResultVO GetMyFriend(@RequestParam("name") String name){
+    public ResultVo GetMyFriend(@RequestParam("name") String name){
         User user = userService.findByName(name);
         List<FriendDTO> friendDTOList = friendService.findByUserId(user.getId());
-        return ResultVoUtil.success(friendDTOList);
+        return resultVOUtil.success(friendDTOList);
     }
 
     /**
@@ -49,20 +52,20 @@ public class FriendController {
      * @return
      */
     @PostMapping("/code")
-    public ResultVO code(@RequestParam("name") String name){
+    public ResultVo code(@RequestParam("name") String name){
         String path = createQRCodeUtil.create(name,name);
         log.info(path);
-        return ResultVoUtil.success(path);
+        return resultVOUtil.success(path);
     }
 
     @PostMapping("/add")
-    public ResultVO add(@RequestParam("me") String me,@RequestParam("name") String name){
+    public ResultVo add(@RequestParam("me") String me,@RequestParam("name") String name){
         User user = userService.findByName(me);
         User friend = userService.findByName(name);
         Friend friendMsg = new Friend();
         friendMsg.setUserId(user.getId());
         friendMsg.setFriendId(friend.getId());
         friendService.save(friendMsg);
-        return ResultVoUtil.success("ok");
+        return resultVOUtil.success("ok");
     }
 }
